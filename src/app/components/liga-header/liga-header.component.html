@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid justify-content-start">
+    <a href="#" class="navbar-brand d-flex">
+      <img
+        [ngSrc]="imagenLiga()"
+        [alt]="nombreLiga()"
+        width="50"
+        height="65"
+        class="d-inline-block align-text-top"
+      />
+      <p class="ms-3 my-auto">{{ nombreLiga() }}</p>
+    </a>
+
+    <div class="dropdown">
+      <a
+        class="btn btn-dark btn-outline-dark text-light dropdown-toggle"
+        href="#"
+        role="button"
+        id="dropdownMenuLink"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Equipos
+      </a>
+
+      <ul
+        class="dropdown-menu dropdown-menu-dark overflow-y-scroll navbar-nav-scroll"
+        aria-labelledby="dropdownMenuLink"
+      >
+        @for (equipo of equipos(); track $index) {
+          <li><a class="dropdown-item" [href]=`#${equipo.nombreEquipo}-${$index}` >{{ equipo.nombreEquipo }}</a></li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
